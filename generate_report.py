@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """
 Automated Daily Market Report Generator
@@ -7,10 +6,10 @@ Fetches market data, news, and generates AI summaries
 
 import os
 import json
+import requests
 from datetime import datetime
 from dotenv import load_dotenv
 import yfinance as yf
-from newsapi import NewsApiClient
 from openai import OpenAI
 
 # Load environment variables
@@ -21,7 +20,6 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 NEWSAPI_KEY = os.getenv('NEWSAPI_KEY')
 
 openai_client = OpenAI(api_key=OPENAI_API_KEY)
-news_api = NewsApiClient(api_key=NEWSAPI_KEY)
 
 # ============================================================================
 # STEP 1: FETCH MARKET DATA
@@ -87,26 +85,31 @@ def fetch_market_data():
 
 def fetch_news():
     """
-    Fetch top business and market news from NewsAPI.
+    Fetch top business and market news using NewsAPI directly.
     Returns a list of news articles with title and description.
     """
     
     try:
-        # Fetch top business news from India and globally
-        response = news_api.get_top_headlines(
-            q='business OR market OR stock OR finance',
-            category='business',
-            language='en',
-            page_size=10
-        )
+        # Using NewsAPI REST endpoint directly
+        url = 'https://newsapi.org/v2/top-headlines'
+        params = {
+            'category': 'business',
+            'language': 'en',
+            'apiKey': NEWSAPI_KEY,
+            'pageSize': 10
+        }
+        
+        response = requests.get(url, params=params, timeout=10)
+        response.raise_for_status()
+        data = response.json()
         
         articles = []
-        if response['status'] == 'ok':
-            for article in response['articles'][:6]:  # Get top 6 articles
+        if data.get('status') == 'ok':
+            for article in data.get('articles', [])[:6]:  # Get top 6 articles
                 articles.append({
-                    'title': article['title'],
-                    'description': article['description'] or 'No description available',
-                    'url': article['url']
+                    'title': article.get('title', 'No title'),
+                    'description': article.get('description') or 'No description available',
+                    'url': article.get('url', '#')
                 })
         
         return articles
