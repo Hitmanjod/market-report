@@ -1,1 +1,321 @@
 
+/* ============================================================ */
+/* GLOBAL STYLES & COLOR SCHEME */
+/* ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================================ */
+/* HEADER */
+/* ============================================================ */
+
+.header {
+    background-color: #1e293b;
+    border-bottom: 1px solid #334155;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #60a5fa;
+}
+
+.date {
+    font-size: 0.95rem;
+    color: #94a3b8;
+}
+
+/* ============================================================ */
+/* HERO SECTION */
+/* ============================================================ */
+
+.hero {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #f1f5f9;
+}
+
+.hero .tagline {
+    font-size: 1.2rem;
+    color: #94a3b8;
+}
+
+/* ============================================================ */
+/* MARKET SECTION */
+/* ============================================================ */
+
+.market-section {
+    padding: 60px 0;
+    background-color: #0f172a;
+}
+
+.market-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #f1f5f9;
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.market-card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.market-card:hover {
+    border-color: #475569;
+    transform: translateY(-2px);
+    background-color: #334155;
+}
+
+.market-card.positive {
+    border-left: 4px solid #10b981;
+}
+
+.market-card.negative {
+    border-left: 4px solid #ef4444;
+}
+
+.card-header {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+}
+
+.card-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 8px;
+}
+
+.card-change {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.market-card.positive .card-change {
+    color: #10b981;
+}
+
+.market-card.negative .card-change {
+    color: #ef4444;
+}
+
+/* ============================================================ */
+/* SUMMARY SECTION */
+/* ============================================================ */
+
+.summary-section {
+    padding: 60px 0;
+    background-color: #1e293b;
+}
+
+.summary-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #f1f5f9;
+}
+
+.summary-box {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-left: 4px solid #60a5fa;
+    border-radius: 12px;
+    padding: 30px;
+    line-height: 1.8;
+    color: #cbd5e1;
+    font-size: 1.05rem;
+}
+
+/* ============================================================ */
+/* NEWS SECTION */
+/* ============================================================ */
+
+.news-section {
+    padding: 60px 0;
+    background-color: #0f172a;
+}
+
+.news-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #f1f5f9;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.news-card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    border-color: #60a5fa;
+    background-color: #334155;
+    transform: translateY(-2px);
+}
+
+.news-card h4 {
+    font-size: 1.1rem;
+    color: #f1f5f9;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.news-card p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.news-card a {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.news-card a:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+/* ============================================================ */
+/* FOOTER */
+/* ============================================================ */
+
+.footer {
+    background-color: #1e293b;
+    border-top: 1px solid #334155;
+    padding: 40px 0;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+/* ============================================================ */
+/* RESPONSIVE DESIGN */
+/* ============================================================ */
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .tagline {
+        font-size: 1rem;
+    }
+
+    .market-section h2,
+    .summary-section h2,
+    .news-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .market-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-box {
+        padding: 20px;
+        font-size: 1rem;
+    }
+
+    .header .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .market-section,
+    .summary-section,
+    .news-section {
+        padding: 40px 0;
+    }
+
+    .market-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card-value {
+        font-size: 1.3rem;
+    }
+}
