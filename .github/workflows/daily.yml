@@ -1,4 +1,3 @@
-
 name: Daily Market Report
 
 on:
@@ -15,7 +14,7 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       # Step 2: Set up Python environment
       - name: Set up Python
@@ -47,10 +46,3 @@ jobs:
           git add index.html
           git commit -m "chore: automated daily market report update" || echo "No changes to commit"
           git push
-      
-      # Step 7: Deploy to GitHub Pages (automatically picks up index.html)
-      - name: Deploy to GitHub Pages
-        uses: actions/upload-artifact@v3
-        with:
-          name: market-report
-          path: index.html
