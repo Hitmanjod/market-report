@@ -1,1 +1,65 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Market Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">📈 Market Report</div>
+            <div class="date">{{DATE}}</div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Daily Market Brief</h1>
+            <p class="tagline">Your automated morning financial intelligence</p>
+        </div>
+    </section>
+
+    <!-- MARKET DATA CARDS -->
+    <section class="market-section">
+        <div class="container">
+            <h2>Global Markets</h2>
+            <div class="market-grid">
+                {{MARKET_CARDS}}
+            </div>
+        </div>
+    </section>
+
+    <!-- AI MARKET SUMMARY -->
+    <section class="summary-section">
+        <div class="container">
+            <h2>Market Overview</h2>
+            <div class="summary-box">
+                {{AI_SUMMARY}}
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS HEADLINES -->
+    <section class="news-section">
+        <div class="container">
+            <h2>Top Headlines</h2>
+            <div class="news-grid">
+                {{NEWS_CARDS}}
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>Automated daily report • Last updated: {{DATE}}</p>
+            <p style="font-size: 0.85rem; opacity: 0.7;">Data from Yahoo Finance • News from NewsAPI • Summary by OpenAI</p>
+        </div>
+    </footer>
+</body>
+</html>
